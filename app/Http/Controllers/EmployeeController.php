@@ -25,7 +25,16 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $employee = new Employee();
+        $employee->name = request('name');
+        $employee->email = request('email');
+        $employee->phone = request('phone');
+        $employee->salary = request('salary');
+        $employee->departement = request('departement');
+        $employee->save();
+
+        return response()
+                    ->json($employee);
     }
 
     /**

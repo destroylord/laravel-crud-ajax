@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/employee', [EmployeeController::class, 'index']);
+Route::post('/employee/create', [EmployeeController::class, 'create'])->name('employee.create');
