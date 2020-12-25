@@ -121,7 +121,7 @@
                   $('#formEmployee')[0].reset();
                   $("#exampleModal").modal('hide');
                 }else {
-                  
+                  console.log("tak bisa");
                 }
             }
         })

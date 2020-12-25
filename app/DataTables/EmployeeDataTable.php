@@ -21,7 +21,9 @@ class EmployeeDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'employee.action');
+            ->addColumn('action', function ($user) {
+                return '<a href="javascript:void(0)" id="#edit-'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+            });
     }
 
     /**
@@ -46,7 +48,7 @@ class EmployeeDataTable extends DataTable
                     ->setTableId('employee-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->orderBy(1);
+                    ->orderBy(0);
     }
 
     /**
@@ -63,6 +65,7 @@ class EmployeeDataTable extends DataTable
             'phone',
             'salary',
             'departement',
+            'action',
         ];
     }
 
